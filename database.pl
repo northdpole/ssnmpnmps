@@ -44,5 +44,5 @@ $db->do('CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;');
 
-$db->do('INSERT INTO `users` (`name`, `password`, `level`) VALUES (md5("admin"), md5("admin"), 1)');
+$db->do('INSERT INTO `users` (`name`, `password`, `level`) VALUES (admin, admin, 1)');
 $db->disconnect();

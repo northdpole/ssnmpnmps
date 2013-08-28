@@ -40,8 +40,8 @@ use POSIX;
 #Check for the right args
 if(!defined $ARGV[0] ||($ARGV[0] eq '-h' || $ARGV[0] eq '--help')){
 	print "usage: perl add_service.pl hostip community OID\n
-					e.g. perl add_host.pl 192.168.1.23  public 1.3.6.1.2.1.2.1.0\n
-						or perl add_host.pl 192.168.1.23/23  public 1.3.6.1.2.1.2.1.0 for a multitude of computers
+					e.g. perl add_service.pl 192.168.1.23  public 1.3.6.1.2.1.2.1.0\n
+						or perl add_service.pl 192.168.1.23/23  public 1.3.6.1.2.1.2.1.0 for a multitude of computers
 					for help use -h or --help \n";
 	exit;
 }
