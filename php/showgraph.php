@@ -100,17 +100,40 @@ $ipaddress = $_SESSION['ipaddress'];
 											Info:</br>
 											Service monitored since:
 											<?php
-											$d = plot($data,$option);
-											echo $d['min'];?>
-											<br>
-											Average value of the service
-											<?php echo $d['avg'];
+											$results = array();
+											foreach($data as $subarray){
+												array_push($results,$subarray['results']);
+											}
+											if(is_numeric($results[0]) &&
+												 !count(array_unique($results)) === 1) {
+
+												$d = plot($data,$option);
+												echo $d['min'];?>
+												<br>
+												Average value of the service
+												<?php echo $d['avg'];
 												echo "<table style=\"width:100%;\" class=\"graph_table\">
-															<tr><td>";
-
-
-                       echo "<img style=\"width:100%;\"src=\"images/graph.jpg\"alt=\"the_graph\"></td></tr></table>";
-                      }
+																<tr><td>";
+												echo "<img style=\"width:100%;\"src=\"images/graph.jpg\"alt=\"the_graph\"></td></tr></table>";
+                      }elseif(count(array_unique($results)) === 1){
+												$d = plot($data,$option);
+												?>
+											Info:</br>
+											Service monitored since:
+											<?php
+												echo $d['min'];
+												echo "</br>Value of ".$option." is the same for all counts:". $results[0];
+											}elseif(!is_numeric($data[0]['results']) && count(array_unique($results)) > 1){
+												echo "The list of non numeric values is:<ul>";
+												foreach($data as $subarray){
+													echo "</li><li>";
+													foreach($subarray as $key=>$value){
+														echo "   ".$key."->".$value."</br>";
+													}
+												}
+												echo "</ul>";
+											}
+                    }
                     ?>
                 </div>
             </div>
