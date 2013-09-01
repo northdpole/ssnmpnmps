@@ -52,7 +52,7 @@ if(defined $ARGV[0]){
 	die "\n please give an ip";
 }
 if(defined $ARGV[1]){
-	$community = $ARGV[2];
+	$community = $ARGV[1];
 }else{
 	$community = 'pulic';
 }
