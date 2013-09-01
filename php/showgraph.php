@@ -4,6 +4,7 @@ require_once ('includes/basics.php');
 require_once ('includes/jpgraph/jpgraph.php');
 require_once ('includes/jpgraph/jpgraph_line.php');
 require_once ('includes/jpgraph/jpgraph_bar.php');
+require_once( "includes/jpgraph/jpgraph_date.php" );
 require_once ('getGraphLibDatagramInfo.php');
 require_once ('getGraphLibFragmentsInfo.php');
 require_once ('generateGraph.php');
@@ -105,10 +106,12 @@ $ipaddress = $_SESSION['ipaddress'];
 												array_push($results,$subarray['results']);
 											}
 											if(is_numeric($results[0]) &&
-												 !count(array_unique($results)) === 1) {
+												 count(array_unique($results)) != 1) {
 
 												$d = plot($data,$option);
-												echo $d['min'];?>
+												echo $d['min'];
+												?>
+												
 												<br>
 												Average value of the service
 												<?php echo $d['avg'];
@@ -156,4 +159,3 @@ $ipaddress = $_SESSION['ipaddress'];
     </body>
 
 </html>
-

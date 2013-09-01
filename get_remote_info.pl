@@ -10,8 +10,8 @@ use POSIX;
 
 #Check for the right args
 if($ARGV[0] eq '-h' || $ARGV[0] eq '--help'){
-	print STDOUT "usage: perl get_remote_info.pl [hostip -v]<--optional\n
-					for help use -h or --help \n";
+	print STDOUT 'usage: perl get_remote_info.pl [$hostip] [-v] for help use -h or --help
+';
 	exit;
 }
 if(defined $ARGV[0] && $ARGV[0] ne '-v'){
@@ -28,7 +28,9 @@ if(defined $ARGV[1] && $ARGV[1] eq '-v'){
 }
 
 if($ipaddress != -1){
-	 print STDOUT "Getting info for::".$ipaddress."\n";
+	if($verbosity eq '-v'){
+		print STDOUT "Getting info for::".$ipaddress."\n";
+	}
 	#Check if ip is a real ip and if its accessible
 		$ip = new Net::IP($ipaddress) or die "\nAddress not valid";
 		$p = new Net::Ping("udp",1) or die "\n Ping failed";

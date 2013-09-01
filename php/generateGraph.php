@@ -5,33 +5,37 @@ function plot($data, $oid){
   $xdata = array();
 	foreach($data as $subarray){
 			array_push($xdata, date("F j, Y g:i a", strtotime($subarray['timestamp'])));
-			array_push($ydata, $subarray['results']);
+			array_push($ydata, trim($subarray['results']));
 	}
  // Width and height of the graph
-	$width = 1200; $height = 1200;
+	$width = 600; $height = 600;
 
 	// Create a graph instance
 	$graph = new Graph($width,$height);
 
+	$graph->SetMargin(60,40,30,200);
 	// Specify what scale we want to use,
-	// int = integer scale for the X-axis
-	// int = integer scale for the Y-axis
-	$graph->SetScale('intint');
+	$minY = min($ydata);
+	$maxY = max($ydata);
+	$graph->SetScale('datlin',$minY ,$maxY);
+	$graph->xaxis->SetLabelAngle(90);
 
 	$label = 'Chart of results for '.$oid;
 	// Setup a title for the graph
 	$graph->title->Set($label);
-	// Setup titles and X-axis labels
-	$graph->xaxis->title->Set('(time)');
-
 	// Setup Y-axis title
-	$graph->yaxis->title->Set('(# values)');
+	//$graph->yaxis->title->Set('(# values)');
 
 	// Create the linear plot
 	$lineplot=new LinePlot($ydata);
 
+	$lineplot->mark->SetType(MARK_CROSS);
+	$lineplot->mark->SetColor('blue');
+
 	// Add the plot to the graph
 	$graph->Add($lineplot);
+	
+	//set x axis labels
 	$graph->xaxis->SetTickLabels($xdata);
 	//$graph->SetScale('intint',0,0,0,max($xdata)-min($xdata)+1);
 	// Display the graph
