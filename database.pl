@@ -7,9 +7,9 @@ require('conf.pl');
 my $dataSource = 'DBI:mysql:'.$db_name.':'. $db_hostname;
 $db = DBI->connect( $dataSource,$username,$password) or die("Cannot connect to databse");
 
-$db->do('CREATE DATABASE IF NOT EXISTS $db_name') or die("Cannot create the databse") ;
+$db->do("CREATE DATABASE IF NOT EXISTS $db_name") or die("Cannot create the databse") ;
 
-$db->do('USE $db_name');
+$db->do("USE $db_name");
 
 $db->do('CREATE TABLE IF NOT EXISTS `host_services` (
 					`ipaddress` varchar(128) NOT NULL,
@@ -44,5 +44,5 @@ $db->do('CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;');
 
-$db->do('INSERT INTO `users` (`name`, `password`, `level`) VALUES (admin, admin, 1)');
+$db->do('INSERT INTO `users` (`name`, `password`, `level`) VALUES ("admin", "admin", "1")');
 $db->disconnect();
