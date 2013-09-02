@@ -10,7 +10,8 @@ use POSIX;
 #Check for the right args
 if(!defined $ARGV[0] ||($ARGV[0] eq '-h' || $ARGV[0] eq '--help')){
 	print "usage: perl daemon.pl probing_frequency(in seconds) [ips -v(for message output to stdout)]<--optional \n
-					for help use -h or --help \n";
+					for help use -h or --help
+					if you are thirsty use -beer \n";
 	exit;
 }
 if(defined $ARGV[0]){
@@ -29,12 +30,257 @@ if(defined $ARGV[1] && $ARGV[1] ne '-v'){
 }elsif($ARGV[1] eq '-v'){
 	$verbosity = '-v';
 	}
+
+if($ARGV[0] eq '-beer' || $ARGV[1] eq '-beer' || $ARGV[2] eq '-beer'){
+completelyincospiciousSubroutinethatdoesnothingexceptserveyoufinecoldweissbierandoptionallyabratwurst();
+exit;
+	}
 while(1){
 	if( $verbosity eq '-v'){
 		print "Probing::".scalar localtime()."\n";
 		print qx(perl get_remote_info.pl $ipaddrs $verbosity);
 	}else{
-		qx(perl get_remote_info.pl $ipaddrs $verbosity);
+	  qx(perl get_remote_info.pl $ipaddrs $verbosity);
 	}
 	sleep($sleep_t);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sub completelyincospiciousSubroutinethatdoesnothingexceptserveyoufinecoldweissbierandoptionallyabratwurst{
+print '
+.===================================================================.
+||                                                                 ||
+||                                                                 ||
+||                                                                 ||
+||                            ___                                  ||
+||                          .\'   \'.                                ||
+||                         /       \           oOoOo               ||
+||                        |         |       ,==|||||               ||
+||                         \       /       _|| |||||               ||
+||                          \'.___.\'    _.-\'^|| |||||               ||
+||                        __/_______.-\'     \'==HHHHH               ||
+||                   _.-\'` /                   """""               ||
+||                .-\'     /   oOoOo                                ||
+||                `-._   / ,==|||||                                ||
+||                    \'-/._|| |||||                                ||
+||                     /  ^|| |||||                                ||
+||                    /    \'==HHHHH                                ||
+||                   /________"""""                                ||
+||                   `\       `\                                   ||
+||                     \        `\   /                             ||
+||                      \         `\/                              ||
+||                      /                                          ||
+||                     /                                           ||
+||                    /_____                                       ||
+||                                                                 ||
+\'===================================================================\'
+';
+
 }
