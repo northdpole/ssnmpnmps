@@ -17,10 +17,12 @@ $ipv4forwarding = '1.3.6.1.2.1.4.1.0';
 
 #Check for the right args
 if(!defined $ARGV[0] ||($ARGV[0] eq '-h' || $ARGV[0] eq '--help')){
-	print "usage: perl add_host.pl hostip host_identifier community \n
-					e.g. perl add_host.pl 192.168.1.23 the_thing public \n
-					or perl add_host.pl 192.168.1.23/23  the_thing 1.3.6.1.2.1.2.1.0 \n
-					for help use -h or --help \n";
+	print 'usage: perl add_host.pl $hostip $host_identifier $community
+e.g. perl add_host.pl 192.168.1.23 the_thing public
+or you can use it with a net mask
+perl add_host.pl 192.168.1.23/23  the_thing public
+for help use -h or --help
+';
 	exit;
 }
 if(defined $ARGV[0]){
