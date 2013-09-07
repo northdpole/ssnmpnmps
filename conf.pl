@@ -1,6 +1,6 @@
 use Cwd;
-$username = 'root';
-$password = 'northy';
+$username = '';
+$password = '';
 $db_hostname = 'localhost';
 $network = '127.0.0.1';
 $community_string = 'public';

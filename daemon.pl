@@ -10,7 +10,8 @@ use POSIX;
 #Check for the right args
 if(!defined $ARGV[0] ||($ARGV[0] eq '-h' || $ARGV[0] eq '--help')){
 	print 'usage: perl daemon.pl probing_frequency(in seconds) [$ip (with or without net mask)] [-v or -vv](for message output to stdout)
-for help use -h or --help';
+for help use -h or --help
+';
 	exit;
 }
 if(defined $ARGV[0]){
