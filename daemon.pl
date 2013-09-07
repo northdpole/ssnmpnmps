@@ -9,7 +9,7 @@ require('conf.pl');
 use POSIX;
 #Check for the right args
 if(!defined $ARGV[0] ||($ARGV[0] eq '-h' || $ARGV[0] eq '--help')){
-	print "usage: perl daemon.pl probing_frequency(in seconds) [ips -v(for message output to stdout)]<--optional \n
+	print "usage: perl daemon.pl probing_frequency(in seconds) [ips -v or -vv(for message output to stdout)]<--optional \n
 					for help use -h or --help
 					if you are thirsty use -beer \n";
 	exit;
