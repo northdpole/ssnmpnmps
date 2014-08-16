@@ -1,7 +1,9 @@
-ssnmpnmps
+Simple snmp Network Management System
 =========
 
-Simple snmp Network Management System
+Simple snmp Network Management System written in Perl and PHP for the class assignment of the Network Management Class of UOA DIT.
+
+The original readme follows:
 
 Για την αναπτυξη του συστήματος χρησιμοποιήθηκαν οι γλώσσες perl και php.
 Η κύρια λειτουργικότητα του συστήματος έχει γραφτεί σε perl με χρήση των 
